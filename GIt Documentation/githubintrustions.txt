@@ -1,0 +1,42 @@
+
+Add a remote branch:
+git push origin master:new_feature_name
+
+Check if everything is good (fetch origin and list remote branches):
+git fetch origin
+git branch -r
+
+Create a local branch and track the remote branch:
+git checkout -tb new_feature_name origin/new_feature_name
+
+
+Update everything:
+git pull
+
+
+“first clone
+than make your own branch
+then set the upstream branch git push -u origin yourbranchname”
+
+git branch -a #shows all remote and local repositories
+
+git branch -r #shows all remote repositories
+
+git branch -d the_local_branch #delete local branch
+
+git push origin :the_remote_branch #delete remote branch
+
+
+git merge remotename/branchname # Merges updates made online with your local work
+git merge local-branch # will merge the local-branch into the working branch
+
+git pull remotename branchname	 # Grabso online updates and merges them with your local work
+git pull origin my_remote_branch:my_local_branch
+
+git push origin <branch> # pushes to the branch on github from the current branch 
+git push <remote> <local branch name>:<remote branch to push into>
+
+
+git reset --hard origin/master #overwrite all the stuff that you did and messed up all the stuff. 
+
+git push --force origin B:C
