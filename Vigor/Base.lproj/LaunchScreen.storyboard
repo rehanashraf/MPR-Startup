@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8150" systemVersion="15A204g" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" initialViewController="01J-lp-oVM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" initialViewController="01J-lp-oVM">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8122"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -15,13 +16,76 @@
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <animations/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background" translatesAutoresizingMaskIntoConstraints="NO" id="zST-FQ-EKF">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="zH9-Gd-aWc">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="202" id="0Gc-zZ-a6T"/>
+                                    <constraint firstAttribute="width" constant="281" id="7YZ-SY-rjG"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="0Gc-zZ-a6T"/>
+                                        <exclude reference="7YZ-SY-rjG"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="0Gc-zZ-a6T"/>
+                                        <include reference="7YZ-SY-rjG"/>
+                                    </mask>
+                                </variation>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="zST-FQ-EKF" secondAttribute="trailing" id="JtL-cd-ijG"/>
+                            <constraint firstItem="zH9-Gd-aWc" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="KDz-EB-Mjp"/>
+                            <constraint firstItem="zST-FQ-EKF" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="VxJ-sa-1RT"/>
+                            <constraint firstItem="zH9-Gd-aWc" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="ay5-A3-lRK"/>
+                            <constraint firstItem="zST-FQ-EKF" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="fJn-PU-eeY"/>
+                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="zST-FQ-EKF" secondAttribute="bottom" id="vLn-H1-skj"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="zST-FQ-EKF"/>
+                                <exclude reference="zH9-Gd-aWc"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="vLn-H1-skj"/>
+                                <exclude reference="KDz-EB-Mjp"/>
+                                <exclude reference="ay5-A3-lRK"/>
+                                <exclude reference="JtL-cd-ijG"/>
+                                <exclude reference="VxJ-sa-1RT"/>
+                                <exclude reference="fJn-PU-eeY"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="zST-FQ-EKF"/>
+                                <include reference="zH9-Gd-aWc"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="vLn-H1-skj"/>
+                                <include reference="KDz-EB-Mjp"/>
+                                <include reference="ay5-A3-lRK"/>
+                                <include reference="JtL-cd-ijG"/>
+                                <include reference="VxJ-sa-1RT"/>
+                                <include reference="fJn-PU-eeY"/>
+                            </mask>
+                        </variation>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53" y="375"/>
+            <point key="canvasLocation" x="52.5" y="375"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Background" width="288" height="512"/>
+        <image name="Logo" width="956" height="512"/>
+    </resources>
 </document>
