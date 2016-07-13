@@ -99,6 +99,7 @@
                         <viewControllerLayoutGuide type="bottom" id="o0T-h2-ilm"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Znv-UL-x9e">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background" translatesAutoresizingMaskIntoConstraints="NO" id="STb-wz-QZE">
@@ -145,7 +146,7 @@
                                     </mask>
                                 </variation>
                             </imageView>
-                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="2Y7-BM-VWB">
+                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="2Y7-BM-VWB">
                                 <rect key="frame" x="0.0" y="365" width="3432" height="512"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BXo-dI-usP" userLabel="SignIn">
@@ -240,18 +241,18 @@
                                 <exclude reference="GEO-hb-P1J"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="9ZT-Da-fVh"/>
+                                <exclude reference="4lb-gJ-yQI"/>
+                                <exclude reference="VB2-ZX-gRG"/>
+                                <exclude reference="M8p-wK-4oN"/>
+                                <exclude reference="o5L-et-fUO"/>
                                 <exclude reference="NfI-4W-G0f"/>
                                 <exclude reference="UB2-bq-gSE"/>
                                 <exclude reference="fMe-EP-yIm"/>
                                 <exclude reference="0tV-OM-cdN"/>
                                 <exclude reference="Ryb-kI-UyF"/>
-                                <exclude reference="M8p-wK-4oN"/>
-                                <exclude reference="o5L-et-fUO"/>
                                 <exclude reference="j7W-Ln-Yss"/>
                                 <exclude reference="mb7-I7-gog"/>
-                                <exclude reference="4lb-gJ-yQI"/>
-                                <exclude reference="VB2-ZX-gRG"/>
-                                <exclude reference="9ZT-Da-fVh"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -262,18 +263,18 @@
                                 <include reference="GEO-hb-P1J"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="9ZT-Da-fVh"/>
+                                <include reference="4lb-gJ-yQI"/>
+                                <include reference="VB2-ZX-gRG"/>
+                                <include reference="M8p-wK-4oN"/>
+                                <include reference="o5L-et-fUO"/>
                                 <include reference="NfI-4W-G0f"/>
                                 <include reference="UB2-bq-gSE"/>
                                 <include reference="fMe-EP-yIm"/>
                                 <include reference="0tV-OM-cdN"/>
                                 <include reference="Ryb-kI-UyF"/>
-                                <include reference="M8p-wK-4oN"/>
-                                <include reference="o5L-et-fUO"/>
                                 <include reference="j7W-Ln-Yss"/>
                                 <include reference="mb7-I7-gog"/>
-                                <include reference="4lb-gJ-yQI"/>
-                                <include reference="VB2-ZX-gRG"/>
-                                <include reference="9ZT-Da-fVh"/>
                             </mask>
                         </variation>
                     </view>
@@ -291,6 +292,7 @@
                         <viewControllerLayoutGuide type="bottom" id="P0P-xg-gTe"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="p2G-mu-jlx">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background" translatesAutoresizingMaskIntoConstraints="NO" id="wm1-In-iJ1">
@@ -392,8 +394,8 @@
                                     </mask>
                                 </variation>
                             </textField>
-                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" spacing="111" translatesAutoresizingMaskIntoConstraints="NO" id="Mkw-rO-Oq0">
-                                <rect key="frame" x="31" y="364" width="338" height="62"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" spacing="111" translatesAutoresizingMaskIntoConstraints="NO" id="Mkw-rO-Oq0">
+                                <rect key="frame" x="31" y="364" width="296" height="38"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UjJ-Mo-FTY">
                                         <rect key="frame" x="0.0" y="0.0" width="135" height="38"/>
