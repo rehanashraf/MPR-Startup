@@ -108,7 +108,7 @@
 				TargetAttributes = {
 					D7F441BE1D35E051008D4229 = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = EN34P479Z8;
+						DevelopmentTeam = UE8WTZCM7B;
 					};
 				};
 			};
@@ -270,7 +270,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Vigor/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.RehanAshraf.Vigor;
+				PRODUCT_BUNDLE_IDENTIFIER = com.PrathamDoshi.Vigor;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -285,7 +285,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Vigor/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.RehanAshraf.Vigor;
+				PRODUCT_BUNDLE_IDENTIFIER = com.PrathamDoshi.Vigor;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -311,6 +311,7 @@
 				D7F441D51D35E051008D4229 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
