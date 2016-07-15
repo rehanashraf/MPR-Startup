@@ -45,3 +45,14 @@ Next Goal
 3. Database Set up
 
 check the excel sheet to see the development schedule
+
+New July 15th 
+Task Completed 
+1. Database set up and stores user info
+2. Says hello! User's Name
+
+Next Goal
+1. Testing
+2. Fix Bugs 
+3. Plan Development schedule
+
