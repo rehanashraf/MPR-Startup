@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import Firebase
 class SignUpViewController: UIViewController, UITextFieldDelegate {
     
     
@@ -84,7 +84,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         }
         if(RePassword.text != Password.text){
             RePassword.text = nil
-            RePassword.placeholder = "Passwords Don't Match!"
+            RePassword.placeholder = "Passwords don't match!"
             tick4.hidden=false
         }
         else if (RePassword.text == Password.text && RePassword.text != "" && Password != ""){
@@ -92,6 +92,34 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
              tick4.image = UIImage(named: "Checked")
              tick3.hidden = false
              tick4.hidden = false
+             RePassword.placeholder = "Repeat Password"
+            
+            FIRAuth.auth()?.createUserWithEmail(self.Email.text!, password: self.RePassword.text!) { (user, error) in
+                
+                if error == nil
+                {
+                    self.Name.text=""
+                    self.Email.text = ""
+                    self.RePassword.text = ""
+                    self.Password.text=""
+                    
+                    self.tick1.hidden = true
+                    self.tick2.hidden = true
+                    self.tick3.hidden = true
+                    self.tick4.hidden = true
+                    
+                    self.performSegueWithIdentifier("SignUpToLogin", sender: nil)
+                }
+                else
+                {
+                    let alertController = UIAlertController(title: "Oops!", message: error?.localizedDescription, preferredStyle: .Alert)
+                    
+                    let defaultAction = UIAlertAction(title: "OK", style: .Cancel, handler: nil)
+                    alertController.addAction(defaultAction)
+                    
+                    self.presentViewController(alertController, animated: true, completion: nil)
+                }
+            }
         }
         
         

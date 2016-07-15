@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AD_UNIT_ID_FOR_BANNER_TEST</key>
+	<string>ca-app-pub-3940256099942544/2934735716</string>
+	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
+	<string>ca-app-pub-3940256099942544/4411468910</string>
+	<key>CLIENT_ID</key>
+	<string>655312122912-m0138imvv57g8rdmht8fml38694h893t.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.655312122912-m0138imvv57g8rdmht8fml38694h893t</string>
+	<key>API_KEY</key>
+	<string>AIzaSyAKYK1BJl_yOfREeYftRKkywuUQC9iRHNs</string>
+	<key>GCM_SENDER_ID</key>
+	<string>655312122912</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.PrathamDoshi.Vigor</string>
+	<key>PROJECT_ID</key>
+	<string>vigor-eaf6d</string>
+	<key>STORAGE_BUCKET</key>
+	<string>vigor-eaf6d.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<true/>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false/>
+	<key>IS_APPINVITE_ENABLED</key>
+	<false/>
+	<key>IS_GCM_ENABLED</key>
+	<true/>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true/>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:655312122912:ios:173978de3a7ab548</string>
+	<key>DATABASE_URL</key>
+	<string>https://vigor-eaf6d.firebaseio.com</string>
+</dict>
+</plist>
