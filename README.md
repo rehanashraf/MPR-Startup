@@ -29,4 +29,19 @@ Next Goal
 3. Login
 
 
-Check
+New - July 15th
+Task Completed 
+1. FireBase
+2. Create notifcation if the username/password is incorrect 
+3. Login
+3. Register 
+
+
+
+
+Next Goal
+1. Testing 
+2. Fix Bugs
+3. Database Set up
+
+check the excel sheet to see the development schedule
