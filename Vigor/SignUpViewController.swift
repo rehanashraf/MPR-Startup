@@ -8,7 +8,12 @@
 
 import UIKit
 import Firebase
+import FirebaseDatabase
+
+
 class SignUpViewController: UIViewController, UITextFieldDelegate {
+    
+    var ref : FIRDatabaseReference!
     
     
     //All the TextFields
@@ -37,6 +42,8 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         Email.delegate = self
         Password.delegate = self
         RePassword.delegate = self
+        
+        ref = FIRDatabase.database().reference()
         
     //Sets a Target every single time textfield is changed
 //    Name.addTarget(self, action: #selector(SignUpViewController.textFieldDidChange(_:)), forControlEvents: UIControlEvents.EditingChanged)
@@ -98,6 +105,17 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
                 
                 if error == nil
                 {
+                    if(self.isTextFieldEmpty(self.Name.text!)==false && self.isTextFieldEmpty(self.Email.text!)==false){
+                        
+                        let userID : String = user!.uid
+                        let userName : String = self.Name.text!
+                        let userEmail : String = self.Email.text!
+                        let userPassword : String = self.RePassword.text!
+                        
+                        self.ref.child("Users").child(userID).setValue(["Name":userName,"Email":userEmail,"Password":userPassword])
+                        
+                        
+                    }
                     self.Name.text=""
                     self.Email.text = ""
                     self.RePassword.text = ""
@@ -109,6 +127,9 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
                     self.tick4.hidden = true
                     
                     self.performSegueWithIdentifier("SignUpToLogin", sender: nil)
+                    
+                    
+                    
                 }
                 else
                 {

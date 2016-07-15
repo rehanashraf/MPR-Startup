@@ -783,14 +783,14 @@
                                 </constraints>
                                 <variation key="default">
                                     <mask key="constraints">
-                                        <exclude reference="dTX-r3-4cw"/>
                                         <exclude reference="XRo-a4-5Ii"/>
+                                        <exclude reference="dTX-r3-4cw"/>
                                     </mask>
                                 </variation>
                                 <variation key="heightClass=regular-widthClass=compact">
                                     <mask key="constraints">
-                                        <include reference="dTX-r3-4cw"/>
                                         <include reference="XRo-a4-5Ii"/>
+                                        <include reference="dTX-r3-4cw"/>
                                     </mask>
                                 </variation>
                             </imageView>
@@ -859,25 +859,25 @@
                                 <exclude reference="6n2-pF-v8E"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="Odq-61-oZf"/>
+                                <exclude reference="V20-uk-SRh"/>
+                                <exclude reference="6Z3-um-7vc"/>
+                                <exclude reference="hru-mi-Xdu"/>
+                                <exclude reference="nAn-69-Wue"/>
+                                <exclude reference="xXR-tj-EO2"/>
+                                <exclude reference="C5l-r3-Rpv"/>
+                                <exclude reference="NiP-PC-QHe"/>
+                                <exclude reference="spx-bv-pmk"/>
+                                <exclude reference="JyW-vS-JRw"/>
+                                <exclude reference="lUi-qx-Rf3"/>
+                                <exclude reference="v98-zh-k07"/>
+                                <exclude reference="yPG-9J-dUE"/>
                                 <exclude reference="R2h-TW-8AB"/>
                                 <exclude reference="mLJ-d0-qVS"/>
                                 <exclude reference="vX4-1M-Jx0"/>
-                                <exclude reference="nAn-69-Wue"/>
-                                <exclude reference="xXR-tj-EO2"/>
-                                <exclude reference="v98-zh-k07"/>
-                                <exclude reference="yPG-9J-dUE"/>
-                                <exclude reference="C5l-r3-Rpv"/>
-                                <exclude reference="NiP-PC-QHe"/>
-                                <exclude reference="6Z3-um-7vc"/>
-                                <exclude reference="hru-mi-Xdu"/>
-                                <exclude reference="Odq-61-oZf"/>
-                                <exclude reference="V20-uk-SRh"/>
                                 <exclude reference="68L-rQ-JRi"/>
                                 <exclude reference="cQF-88-NF6"/>
                                 <exclude reference="sGc-yZ-uwh"/>
-                                <exclude reference="JyW-vS-JRw"/>
-                                <exclude reference="lUi-qx-Rf3"/>
-                                <exclude reference="spx-bv-pmk"/>
                                 <exclude reference="fxJ-6V-6aN"/>
                             </mask>
                         </variation>
@@ -893,25 +893,25 @@
                                 <include reference="6n2-pF-v8E"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="Odq-61-oZf"/>
+                                <include reference="V20-uk-SRh"/>
+                                <include reference="6Z3-um-7vc"/>
+                                <include reference="hru-mi-Xdu"/>
+                                <include reference="nAn-69-Wue"/>
+                                <include reference="xXR-tj-EO2"/>
+                                <include reference="C5l-r3-Rpv"/>
+                                <include reference="NiP-PC-QHe"/>
+                                <include reference="spx-bv-pmk"/>
+                                <include reference="JyW-vS-JRw"/>
+                                <include reference="lUi-qx-Rf3"/>
+                                <include reference="v98-zh-k07"/>
+                                <include reference="yPG-9J-dUE"/>
                                 <include reference="R2h-TW-8AB"/>
                                 <include reference="mLJ-d0-qVS"/>
                                 <include reference="vX4-1M-Jx0"/>
-                                <include reference="nAn-69-Wue"/>
-                                <include reference="xXR-tj-EO2"/>
-                                <include reference="v98-zh-k07"/>
-                                <include reference="yPG-9J-dUE"/>
-                                <include reference="C5l-r3-Rpv"/>
-                                <include reference="NiP-PC-QHe"/>
-                                <include reference="6Z3-um-7vc"/>
-                                <include reference="hru-mi-Xdu"/>
-                                <include reference="Odq-61-oZf"/>
-                                <include reference="V20-uk-SRh"/>
                                 <include reference="68L-rQ-JRi"/>
                                 <include reference="cQF-88-NF6"/>
                                 <include reference="sGc-yZ-uwh"/>
-                                <include reference="JyW-vS-JRw"/>
-                                <include reference="lUi-qx-Rf3"/>
-                                <include reference="spx-bv-pmk"/>
                                 <include reference="fxJ-6V-6aN"/>
                             </mask>
                         </variation>
@@ -1445,6 +1445,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="LI7-2E-1uk"/>
-        <segue reference="Xpy-Yj-tUw"/>
+        <segue reference="asc-Ml-Z94"/>
     </inferredMetricsTieBreakers>
 </document>

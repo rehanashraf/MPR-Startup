@@ -8,14 +8,34 @@
 
 import UIKit
 import Firebase
+import FirebaseDatabase
 
 class HomeViewController: UIViewController {
+
+    
+    var ref: FIRDatabaseReference!
+    var refHandle: UInt!
+    
 
     @IBOutlet weak var helloLabel: UILabel!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        ref = FIRDatabase.database().reference()
+        refHandle = ref.observeEventType(FIRDataEventType.Value,
+        withBlock: {(snapshot) in
+            let dataDict = snapshot.value as! [String:AnyObject]
+            print(dataDict)
+        })
+        
+        let userID: String = (FIRAuth.auth()?.currentUser?.uid)!
+        ref.child("Users").child(userID).observeSingleEventOfType(.Value,
+        withBlock:{(snapshot) in
+            let name = snapshot.value!["Name"] as! String
+            self.helloLabel.text = "Hello! \(name)"
+        })
 
         // Do any additional setup after loading the view.
     }

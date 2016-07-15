@@ -8,4 +8,5 @@ target 'Vigor' do
   # Pods for Vigor
 pod 'Firebase'
 pod 'FirebaseAuth'
+pod 'Firebase/Database'
 end
