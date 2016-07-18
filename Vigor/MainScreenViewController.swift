@@ -38,7 +38,7 @@ class MainScreenViewController: UIViewController, FBSDKLoginButtonDelegate {
     
     func loginButton(loginButton: FBSDKLoginButton!, didCompleteWithResult result: FBSDKLoginManagerLoginResult!, error: NSError!) {
         print("Facebook Login Completed")
-        fetchProfile()
+ //       fetchProfile()
     }
     
     func loginButtonDidLogOut(loginButton: FBSDKLoginButton!) {
