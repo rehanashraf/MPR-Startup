@@ -34,7 +34,7 @@ class HomeViewController: UIViewController {
         ref.child("Users").child(userID).observeSingleEventOfType(.Value,
         withBlock:{(snapshot) in
             let name = snapshot.value!["Name"] as! String
-            self.helloLabel.text = "Hello! \(name)"
+            self.helloLabel.text = "Hello, \(name)"
         })
 
         // Do any additional setup after loading the view.
@@ -46,6 +46,15 @@ class HomeViewController: UIViewController {
     }
     
     
+    @IBAction func ViewProfileButtonPressed(sender: AnyObject) {
+        self.performSegueWithIdentifier("ProfileView", sender: self)
+        
+        
+        
+        
+        
+        
+    }
 
 
     /*
