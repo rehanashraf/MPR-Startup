@@ -14,7 +14,7 @@ import FirebaseDatabase
 class SignUpViewController: UIViewController, UITextFieldDelegate {
     
     var ref : FIRDatabaseReference!
-    
+   
     
     //All the TextFields
     @IBOutlet weak var Name: UITextField!
@@ -101,6 +101,8 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
              tick4.hidden = false
              RePassword.placeholder = "Repeat Password"
             
+                        
+            
             FIRAuth.auth()?.createUserWithEmail(self.Email.text!, password: self.RePassword.text!) { (user, error) in
                 
                 if error == nil
@@ -111,6 +113,8 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
                         let userName : String = self.Name.text!
                         let userEmail : String = self.Email.text!
                         let userPassword : String = self.RePassword.text!
+                        
+                        
                         
                         self.ref.child("Users").child(userID).setValue(["Name":userName,"Email":userEmail,"Password":userPassword])
                         

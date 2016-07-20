@@ -22,11 +22,7 @@ class ChatViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func LogOutButtonPressed(sender: AnyObject) {
-        try! FIRAuth.auth()!.signOut()
-        self.performSegueWithIdentifier("logOut", sender: nil)
-        
-    }
+  
 
     /*
     // MARK: - Navigation
