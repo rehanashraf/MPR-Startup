@@ -9,8 +9,11 @@
 import UIKit
 import Firebase
 import FirebaseDatabase
+import FirebaseStorage
 
 class UserProfile: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate{
+    
+    
     
     @IBOutlet weak var Name: UILabel!
     @IBOutlet weak var Email: UILabel!
@@ -46,9 +49,33 @@ class UserProfile: UIViewController, UIImagePickerControllerDelegate, UINavigati
         withBlock:{(snapshot) in
         let name = snapshot.value!["Name"] as! String
         let email = snapshot.value!["Email"] as! String
-            
+        let imageURL = snapshot.value!["ProfilePicture"] as! String
+        print(imageURL)
+                  
         self.Name.text = name
         self.Email.text = email
+            
+        let storage = FIRStorage.storage()
+        
+        let storageRef = storage.referenceForURL("gs://vigor-eaf6d.appspot.com")
+         
+        let islandRef = storageRef.child(imageURL)
+        
+            islandRef.dataWithMaxSize(1 * 2048 * 2048) { (data, error) -> Void in
+                if (error != nil) {
+                    print(error)
+                } else {
+                    
+                    let islandImage: UIImage! = UIImage(data: data!)
+                    
+                    
+                    self.profilePicture.image = islandImage
+                    
+                }
+            }
+            
+            
+            
         })
         
         
@@ -92,8 +119,34 @@ class UserProfile: UIViewController, UIImagePickerControllerDelegate, UINavigati
         if let selectedImage = selectedImageFromPicker {
             profilePicture.image = selectedImage
         }
-        
         dismissViewControllerAnimated(true, completion: nil)
+        let imageName = NSUUID().UUIDString
+        
+        let storageRef = FIRStorage.storage().reference().child("\(imageName)")
+            
+            if let uploadData = UIImagePNGRepresentation(self.profilePicture.image!) {
+                
+                storageRef.putData(uploadData, metadata: nil, completion: { (metadata, error) in
+                    
+                    if error != nil {
+                        print(error)
+                        return
+                    }
+                    if let user = FIRAuth.auth()?.currentUser
+                    {
+                    let userID : String = user.uid
+
+                    if let ProfileImageURL = metadata?.downloadURL()?.absoluteString{
+                        self.ref.child("Users").child(userID).updateChildValues(["ProfilePicture" : imageName ])
+                        
+                    }
+                    }
+                    
+                })
+                
+                
+                     }
+        
         
         
     }
