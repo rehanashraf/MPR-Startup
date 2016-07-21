@@ -61,7 +61,7 @@ class UserProfile: UIViewController, UIImagePickerControllerDelegate, UINavigati
          
         let islandRef = storageRef.child(imageURL)
         
-            islandRef.dataWithMaxSize(1 * 2048 * 2048) { (data, error) -> Void in
+            islandRef.dataWithMaxSize(6144*6144*6144*6144*6144) { (data, error) -> Void in
                 if (error != nil) {
                     print(error)
                 } else {
