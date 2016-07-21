@@ -86,13 +86,17 @@ class MainScreenViewController: UIViewController, FBSDKLoginButtonDelegate {
         }
     }
     @IBAction func loginFacebookAction(sender: AnyObject) {
+        
         let fbLoginManager : FBSDKLoginManager = FBSDKLoginManager()
         fbLoginManager.logInWithReadPermissions(["email"], fromViewController: self) { (result, error) -> Void in
             if (error == nil){
                 let fbloginresult : FBSDKLoginManagerLoginResult = result
                 if(fbloginresult.grantedPermissions.contains("email"))
                 {
-                    self.getFBUserData()
+                    //self.getFBUserData()
+                    self.loggedin()
+                    
+
                 }
             }
         }
@@ -108,6 +112,17 @@ class MainScreenViewController: UIViewController, FBSDKLoginButtonDelegate {
             })
         }
     }
+    
+    @IBAction func logOutButton(sender: AnyObject) {
+        logout()
+        print("in logout button")
+    }
+    
+    
+    func logout()
+    {
+            FBSDKLoginManager().logOut()
+    }
     /*
     // MARK: - Navigation
 
@@ -117,5 +132,9 @@ class MainScreenViewController: UIViewController, FBSDKLoginButtonDelegate {
         // Pass the selected object to the new view controller.
     }
     */
-
+    func loggedin()
+    {
+        performSegueWithIdentifier("FBHomeView", sender: nil)
+        print("perform deguew")
+    }
 }

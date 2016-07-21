@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="CDW-YZ-MyJ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="CDW-YZ-MyJ">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -509,8 +509,17 @@
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rGv-lU-08g" customClass="FBSDKProfilePictureView">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6wo-Qf-NgE">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" title="LOG OUT">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="logOutButton:" destination="CDW-YZ-MyJ" eventType="touchUpInside" id="e9v-Oq-RZZ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -524,11 +533,13 @@
                             <constraint firstItem="gjm-Iw-dyu" firstAttribute="top" secondItem="1IN-72-o0o" secondAttribute="bottom" constant="80" id="Ryb-kI-UyF"/>
                             <constraint firstItem="STb-wz-QZE" firstAttribute="leading" secondItem="Znv-UL-x9e" secondAttribute="leading" id="UB2-bq-gSE"/>
                             <constraint firstItem="GEO-hb-P1J" firstAttribute="top" secondItem="2Y7-BM-VWB" secondAttribute="bottom" constant="20" id="VB2-ZX-gRG"/>
+                            <constraint firstItem="6wo-Qf-NgE" firstAttribute="centerX" secondItem="VBr-uQ-wNP" secondAttribute="centerX" id="dwv-hZ-6bL"/>
                             <constraint firstAttribute="trailing" secondItem="STb-wz-QZE" secondAttribute="trailing" id="fMe-EP-yIm"/>
                             <constraint firstItem="o0T-h2-ilm" firstAttribute="top" secondItem="rGv-lU-08g" secondAttribute="bottom" constant="195" id="j6G-qA-fcV"/>
                             <constraint firstItem="2Y7-BM-VWB" firstAttribute="top" secondItem="VBr-uQ-wNP" secondAttribute="bottom" constant="61" id="j7W-Ln-Yss"/>
                             <constraint firstItem="2Y7-BM-VWB" firstAttribute="centerX" secondItem="Znv-UL-x9e" secondAttribute="centerX" id="mb7-I7-gog"/>
                             <constraint firstItem="VBr-uQ-wNP" firstAttribute="top" secondItem="1IN-72-o0o" secondAttribute="bottom" constant="111" id="o5L-et-fUO"/>
+                            <constraint firstItem="6wo-Qf-NgE" firstAttribute="top" secondItem="VBr-uQ-wNP" secondAttribute="bottom" constant="8" id="pYx-0h-Eia"/>
                             <constraint firstItem="rGv-lU-08g" firstAttribute="top" secondItem="GEO-hb-P1J" secondAttribute="bottom" constant="63" id="zto-2X-lkz"/>
                         </constraints>
                         <variation key="default">
@@ -538,22 +549,25 @@
                                 <exclude reference="gjm-Iw-dyu"/>
                                 <exclude reference="GEO-hb-P1J"/>
                                 <exclude reference="rGv-lU-08g"/>
+                                <exclude reference="6wo-Qf-NgE"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="4lb-gJ-yQI"/>
-                                <exclude reference="VB2-ZX-gRG"/>
-                                <exclude reference="M8p-wK-4oN"/>
-                                <exclude reference="o5L-et-fUO"/>
                                 <exclude reference="NfI-4W-G0f"/>
                                 <exclude reference="UB2-bq-gSE"/>
                                 <exclude reference="fMe-EP-yIm"/>
                                 <exclude reference="0tV-OM-cdN"/>
                                 <exclude reference="Ryb-kI-UyF"/>
+                                <exclude reference="M8p-wK-4oN"/>
+                                <exclude reference="o5L-et-fUO"/>
+                                <exclude reference="dwv-hZ-6bL"/>
+                                <exclude reference="pYx-0h-Eia"/>
+                                <exclude reference="j7W-Ln-Yss"/>
+                                <exclude reference="mb7-I7-gog"/>
+                                <exclude reference="4lb-gJ-yQI"/>
+                                <exclude reference="VB2-ZX-gRG"/>
                                 <exclude reference="113-f6-Qm7"/>
                                 <exclude reference="GCf-Tm-feV"/>
                                 <exclude reference="zto-2X-lkz"/>
-                                <exclude reference="j7W-Ln-Yss"/>
-                                <exclude reference="mb7-I7-gog"/>
                                 <exclude reference="9ZT-Da-fVh"/>
                                 <exclude reference="j6G-qA-fcV"/>
                             </mask>
@@ -565,22 +579,25 @@
                                 <include reference="gjm-Iw-dyu"/>
                                 <include reference="GEO-hb-P1J"/>
                                 <include reference="rGv-lU-08g"/>
+                                <include reference="6wo-Qf-NgE"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="4lb-gJ-yQI"/>
-                                <include reference="VB2-ZX-gRG"/>
-                                <include reference="M8p-wK-4oN"/>
-                                <include reference="o5L-et-fUO"/>
                                 <include reference="NfI-4W-G0f"/>
                                 <include reference="UB2-bq-gSE"/>
                                 <include reference="fMe-EP-yIm"/>
                                 <include reference="0tV-OM-cdN"/>
                                 <include reference="Ryb-kI-UyF"/>
+                                <include reference="M8p-wK-4oN"/>
+                                <include reference="o5L-et-fUO"/>
+                                <include reference="dwv-hZ-6bL"/>
+                                <include reference="pYx-0h-Eia"/>
+                                <include reference="j7W-Ln-Yss"/>
+                                <include reference="mb7-I7-gog"/>
+                                <include reference="4lb-gJ-yQI"/>
+                                <include reference="VB2-ZX-gRG"/>
                                 <include reference="113-f6-Qm7"/>
                                 <include reference="GCf-Tm-feV"/>
                                 <include reference="zto-2X-lkz"/>
-                                <include reference="j7W-Ln-Yss"/>
-                                <include reference="mb7-I7-gog"/>
                                 <include reference="9ZT-Da-fVh"/>
                                 <include reference="j6G-qA-fcV"/>
                             </mask>
