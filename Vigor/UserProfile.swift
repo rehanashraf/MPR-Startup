@@ -30,11 +30,10 @@ class UserProfile: UIViewController, UIImagePickerControllerDelegate, UINavigati
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        profilePicture.layer.borderWidth = 1
-        profilePicture.layer.masksToBounds = false
+        profilePicture.layer.borderWidth = 3
+        profilePicture.layer.masksToBounds = true
         profilePicture.layer.borderColor = UIColor.whiteColor().CGColor
-        profilePicture.layer.cornerRadius = 16
-        profilePicture.layer.cornerRadius = profilePicture.frame.size.width/2
+        profilePicture.layer.cornerRadius = 111
         profilePicture.clipsToBounds = true
         
         ref = FIRDatabase.database().reference()

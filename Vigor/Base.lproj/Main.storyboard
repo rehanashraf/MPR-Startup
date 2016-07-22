@@ -2084,7 +2084,7 @@
                         <outlet property="tick2" destination="O2h-Xb-McC" id="JQ0-Zb-pCV"/>
                         <outlet property="tick3" destination="O4x-5w-nt1" id="adb-tM-3kG"/>
                         <outlet property="tick4" destination="Epm-FF-sLn" id="tmh-zQ-Abb"/>
-                        <segue destination="9pv-A4-QxB" kind="show" identifier="SignUpToHome" id="PYu-EO-IO8"/>
+                        <segue destination="49e-Tb-3d3" kind="show" identifier="SignUpToHome" id="4ZP-LQ-5xB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8mt-DP-7F2" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2130,8 +2130,7 @@
         <image name="second" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="PYu-EO-IO8"/>
+        <segue reference="4ZP-LQ-5xB"/>
         <segue reference="Xpy-Yj-tUw"/>
-        <segue reference="Hm4-9C-O32"/>
     </inferredMetricsTieBreakers>
 </document>
