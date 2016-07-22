@@ -131,7 +131,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
                     self.tick3.hidden = true
                     self.tick4.hidden = true
                     
-                    self.performSegueWithIdentifier("SignUpToLogin", sender: nil)
+                    self.performSegueWithIdentifier("SignUpToHome", sender: nil)
                     
                     
                     

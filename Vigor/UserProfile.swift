@@ -25,7 +25,7 @@ class UserProfile: UIViewController, UIImagePickerControllerDelegate, UINavigati
     var refHandle: UInt!
     var base64String: NSString!
     
-    
+    let imageCache = NSCache()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,15 +61,25 @@ class UserProfile: UIViewController, UIImagePickerControllerDelegate, UINavigati
          
         let islandRef = storageRef.child(imageURL)
         
+            if let cachedImage = self.imageCache.objectForKey(imageURL) as? UIImage{
+                
+                self.profilePicture.image = cachedImage
+                return
+            }
+        
             islandRef.dataWithMaxSize(6144*6144*6144*6144*6144) { (data, error) -> Void in
                 if (error != nil) {
                     print(error)
                 } else {
-                    
-                    let islandImage: UIImage! = UIImage(data: data!)
-                    
-                    
+                    print("Not CACHE")
+                    if let islandImage = UIImage(data: data!){
+                    self.imageCache.setObject(islandImage, forKey: imageURL)
                     self.profilePicture.image = islandImage
+                        
+                    print(self.imageCache)
+                        
+                        
+                    }
                     
                 }
             }
@@ -139,18 +149,35 @@ class UserProfile: UIViewController, UIImagePickerControllerDelegate, UINavigati
                     if let ProfileImageURL = metadata?.downloadURL()?.absoluteString{
                         self.ref.child("Users").child(userID).updateChildValues(["ProfilePicture" : imageName ])
                         
-                    }
+                      }
                     }
                     
                 })
                 
                 
-                     }
+          }
         
         
         
     }
     
+    @IBAction func TOSClicked(sender: AnyObject) {
+        if let url = NSURL(string: "http://www.google.com"){
+            UIApplication.sharedApplication().openURL(url)
+        }
+    }
+    
+    @IBAction func privacyPolicyClicked(sender: AnyObject) {
+        if let url = NSURL(string: "http://www.google.com"){
+            UIApplication.sharedApplication().openURL(url)
+        }
+    }
+    
+    @IBAction func AboutClicked(sender: AnyObject) {
+        if let url = NSURL(string: "http://www.google.com"){
+            UIApplication.sharedApplication().openURL(url)
+        }
+    }
     
 
 }
