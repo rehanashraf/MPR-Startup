@@ -118,6 +118,9 @@ class MainScreenViewController: UIViewController, FBSDKLoginButtonDelegate {
         print("in logout button")
     }
     
+    @IBAction func Skip(sender: AnyObject) {
+                performSegueWithIdentifier("Skip", sender: nil)
+    }
     
     func logout()
     {
