@@ -56,7 +56,7 @@ class HomeViewController: UIViewController {
         if (EKEventStore.authorizationStatusForEntityType(.Event) != EKAuthorizationStatus.Authorized) {
             eventStore.requestAccessToEntityType(.Event, completion: {
                 granted, error in
-                self.createEvent(eventStore, title: "DJ's Test Event", startDate: startDate, endDate: endDate)
+                self.createEvent(eventStore, title: "Vigor Event Created", startDate: startDate, endDate: endDate)
             })
         } else {
             createEvent(eventStore, title: "Vigor Event Created", startDate: startDate, endDate: endDate)
@@ -97,6 +97,7 @@ class HomeViewController: UIViewController {
         } catch {
             print("An Error Occured while creating an event")
         }
+        print("Evint id is ", savedEventId)
     }
     
     // Removes an event from the EKEventStore. The method assumes the eventStore is created and

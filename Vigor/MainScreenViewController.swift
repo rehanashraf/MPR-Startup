@@ -137,7 +137,7 @@ class MainScreenViewController: UIViewController, FBSDKLoginButtonDelegate {
     */
     func loggedin()
     {
-        performSegueWithIdentifier("FBHomeView", sender: nil)
+        performSegueWithIdentifier("FBHomeView", sender: self)
         print("perform deguew")
     }
 }
