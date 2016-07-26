@@ -41,6 +41,7 @@ PODS:
 
 DEPENDENCIES:
   - Firebase
+  - Firebase/Core
   - Firebase/Database
   - Firebase/Storage
   - FirebaseAuth
@@ -60,6 +61,6 @@ SPEC CHECKSUMS:
   GoogleUtilities: 56c5ac05b7aa5dc417a1bb85221a9516e04d7032
   Stripe: 3dfcde17037996e00db0a2f6dbfdedb7ad2ae55b
 
-PODFILE CHECKSUM: e9f15410c54489e837ef30e8d16668b1528018c0
+PODFILE CHECKSUM: f3d7f09e98ef6d1375d067a28350d32a3388f32a
 
 COCOAPODS: 1.0.1

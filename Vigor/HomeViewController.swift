@@ -12,7 +12,6 @@ import FirebaseDatabase
 
 class HomeViewController: UIViewController {
 
-    
     var ref: FIRDatabaseReference!
     var refHandle: UInt!
     
@@ -24,11 +23,11 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         
         ref = FIRDatabase.database().reference()
-        refHandle = ref.observeEventType(FIRDataEventType.Value,
-        withBlock: {(snapshot) in
-            let dataDict = snapshot.value as! [String:AnyObject]
-            print(dataDict)
-        })
+//        refHandle = ref.observeEventType(FIRDataEventType.Value,
+//        withBlock: {(snapshot) in
+//            let dataDict = snapshot.value as! [String:AnyObject]
+//    
+//        })
         
         let userID: String = (FIRAuth.auth()?.currentUser?.uid)!
         ref.child("Users").child(userID).observeSingleEventOfType(.Value,
@@ -37,7 +36,6 @@ class HomeViewController: UIViewController {
             self.helloLabel.text = "Hello, \(name)"
         })
 
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
@@ -47,6 +45,7 @@ class HomeViewController: UIViewController {
     
     
     @IBAction func ViewProfileButtonPressed(sender: AnyObject) {
+        
         self.performSegueWithIdentifier("ProfileView", sender: self)
         
         

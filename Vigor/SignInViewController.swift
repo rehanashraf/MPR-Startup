@@ -10,6 +10,7 @@ import UIKit
 import Firebase
 
 class SignInViewController: UIViewController, UITextFieldDelegate  {
+    var ref: FIRDatabaseReference!
 
     @IBOutlet weak var UserName: UITextField!
     @IBOutlet weak var Password: UITextField!
@@ -21,17 +22,14 @@ class SignInViewController: UIViewController, UITextFieldDelegate  {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        ref = FIRDatabase.database().reference()
+
         changeUIColor(UserName)
         changeUIColor(Password)
         
          UserName.delegate = self
          Password.delegate = self
         
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     func changeUIColor(myTextField :UITextField){
@@ -87,8 +85,24 @@ class SignInViewController: UIViewController, UITextFieldDelegate  {
         
     }
     func Login(){
+        let userID: String = (FIRAuth.auth()?.currentUser?.uid)!
+        ref.child("Users").child(userID).observeSingleEventOfType(.Value,
+                                                                  withBlock:{(snapshot) in
+        let name = snapshot.value!["Name"] as! String
+        let email = snapshot.value!["Email"] as! String
+        let imgurl =  snapshot.value!["ProfilePicture"] as! String
+                                                                    
+                                                                    
+                                                                    
+        userOne.Name = name
+        userOne.Email = email
+        userOne.imageUrl = imgurl
+           
+        userOne.userPrint()
+            })
         
         performSegueWithIdentifier("homeView", sender: nil)
+                                                                    
         
     }
     

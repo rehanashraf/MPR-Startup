@@ -9,12 +9,11 @@
 import UIKit
 import Firebase
 import FirebaseDatabase
-
-
 class SignUpViewController: UIViewController, UITextFieldDelegate {
+
+   
     
     var ref : FIRDatabaseReference!
-   
     
     //All the TextFields
     @IBOutlet weak var Name: UITextField!
@@ -101,26 +100,30 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
              tick4.hidden = false
              RePassword.placeholder = "Repeat Password"
             
+            userOne.Name = self.Name.text!
+            userOne.Email = self.Email.text!
+            userOne.imageUrl = "sample.png"
+            
                         
             
-            FIRAuth.auth()?.createUserWithEmail(self.Email.text!, password: self.RePassword.text!) { (user, error) in
+            FIRAuth.auth()?.createUserWithEmail(userOne.Email, password: self.RePassword.text!) { (user, error) in
                 
                 if error == nil
                 {
                     if(self.isTextFieldEmpty(self.Name.text!)==false && self.isTextFieldEmpty(self.Email.text!)==false){
                         
                         let userID : String = user!.uid
-                        let userName : String = self.Name.text!
-                        let userEmail : String = self.Email.text!
-                        let userPassword : String = self.RePassword.text!
-                        let profilePictureImage : String = "sample.png"
+                        let userName : String = userOne.Name
+                        let userEmail : String = userOne.Email
+                        let profilePictureImage : String = userOne.imageUrl
+                       
                         
                         
-                        
-                        self.ref.child("Users").child(userID).setValue(["Name":userName,"Email":userEmail,"Password":userPassword,"ProfilePicture": profilePictureImage])
+                        self.ref.child("Users").child(userID).setValue(["Name":userName,"Email":userEmail,"ProfilePicture": profilePictureImage])
                         
                         
                     }
+                    
                     self.Name.text=""
                     self.Email.text = ""
                     self.RePassword.text = ""
@@ -130,8 +133,13 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
                     self.tick2.hidden = true
                     self.tick3.hidden = true
                     self.tick4.hidden = true
+                    print(userOne.Name)
+                    print(userOne.Email)
+                    
+                    userOne.userPrint()
                     
                     self.performSegueWithIdentifier("SignUpToHome", sender: nil)
+                    
                     
                     
                     
@@ -189,6 +197,5 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-
 
 }

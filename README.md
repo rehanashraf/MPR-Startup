@@ -56,3 +56,7 @@ Next Goal
 2. Fix Bugs 
 3. Plan Development schedule
 
+
+July 24th 
+1. Code Restuctured completely
+2.User Profile - Edit buttons implemented

@@ -11,4 +11,5 @@ pod 'FirebaseAuth'
 pod 'Firebase/Database'
 pod 'Firebase/Storage'
 pod 'Stripe'
+pod 'Firebase/Core'
 end

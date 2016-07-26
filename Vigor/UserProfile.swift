@@ -10,22 +10,26 @@ import UIKit
 import Firebase
 import FirebaseDatabase
 import FirebaseStorage
+import FirebaseAuth
 
-class UserProfile: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate{
+class UserProfile: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate{
     
     
+        
     
-    @IBOutlet weak var Name: UILabel!
-    @IBOutlet weak var Email: UILabel!
+    
+    @IBOutlet weak var Name: UITextField!
+    @IBOutlet weak var Email: UITextField!
     
     @IBOutlet weak var profilePicture: UIImageView!
-
     
     var ref: FIRDatabaseReference!
     var refHandle: UInt!
     var base64String: NSString!
-    
     let imageCache = NSCache()
+    
+
+  
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,60 +41,50 @@ class UserProfile: UIViewController, UIImagePickerControllerDelegate, UINavigati
         profilePicture.clipsToBounds = true
         
         ref = FIRDatabase.database().reference()
-        refHandle = ref.observeEventType(FIRDataEventType.Value,
-        withBlock: {(snapshot) in
-        let dataDict = snapshot.value as! [String:AnyObject]
-        print(dataDict)
-        })
+//        refHandle = ref.observeEventType(FIRDataEventType.Value,
+//        withBlock: {(snapshot) in
+//        let dataDict = snapshot.value as! [String:AnyObject]
+//
+//        })
         
         let userID: String = (FIRAuth.auth()?.currentUser?.uid)!
         ref.child("Users").child(userID).observeSingleEventOfType(.Value,
         withBlock:{(snapshot) in
-        let name = snapshot.value!["Name"] as! String
-        let email = snapshot.value!["Email"] as! String
-        let imageURL = snapshot.value!["ProfilePicture"] as! String
-        print(imageURL)
+            
+        let imageURL = userOne.imageUrl
+           
                   
-        self.Name.text = name
-        self.Email.text = email
+        self.Name.text = userOne.Name
+        self.Email.text = userOne.Email
+            
+         self.Name.delegate = self
+         self.Email.delegate = self
+
+        
             
         let storage = FIRStorage.storage()
-        
         let storageRef = storage.referenceForURL("gs://vigor-eaf6d.appspot.com")
-         
-        let islandRef = storageRef.child(imageURL)
+        let imageRef = storageRef.child(imageURL)
         
+            
             if let cachedImage = self.imageCache.objectForKey(imageURL) as? UIImage{
                 
                 self.profilePicture.image = cachedImage
                 return
             }
+            
         
-            islandRef.dataWithMaxSize(6144*6144*6144*6144*6144) { (data, error) -> Void in
+            imageRef.dataWithMaxSize(6144*6144*6144*6144*6144) { (data, error) -> Void in
                 if (error != nil) {
                     print(error)
                 } else {
-                    print("Not CACHE")
-                    if let islandImage = UIImage(data: data!){
-                    self.imageCache.setObject(islandImage, forKey: imageURL)
-                    self.profilePicture.image = islandImage
-                        
-                    print(self.imageCache)
-                        
-                        
+                    if let profileImage = UIImage(data: data!){
+                    self.imageCache.setObject(profileImage, forKey: imageURL)
+                    self.profilePicture.image = profileImage
                     }
-                    
                 }
             }
-            
-            
-            
         })
-        
-        
-        
-        
-        // Do any additional setup after loading the view.
     }
     
     override func didReceiveMemoryWarning() {
@@ -105,6 +99,7 @@ class UserProfile: UIViewController, UIImagePickerControllerDelegate, UINavigati
     
     @IBAction func SignOut(sender: AnyObject) {
         try! FIRAuth.auth()!.signOut()
+        userOne.userPrint()
         self.performSegueWithIdentifier("logOut", sender: nil)
     }
     
@@ -143,21 +138,17 @@ class UserProfile: UIViewController, UIImagePickerControllerDelegate, UINavigati
                     }
                     if let user = FIRAuth.auth()?.currentUser
                     {
+                    userOne.imageUrl = imageName
                     let userID : String = user.uid
 
-                    if let ProfileImageURL = metadata?.downloadURL()?.absoluteString{
-                        self.ref.child("Users").child(userID).updateChildValues(["ProfilePicture" : imageName ])
+                    if (metadata?.downloadURL()?.absoluteString) != nil{
+                        self.ref.child("Users").child(userID).updateChildValues(["ProfilePicture" : userOne.imageUrl ])
                         
                       }
-                    }
+                   }
                     
-                })
-                
-                
+              })
           }
-        
-        
-        
     }
     
     @IBAction func TOSClicked(sender: AnyObject) {
@@ -178,5 +169,79 @@ class UserProfile: UIViewController, UIImagePickerControllerDelegate, UINavigati
         }
     }
     
+    @IBAction func nameEditButtonPressed(sender: AnyObject) {
+        if(self.Name.text == "" || self.Name.text == " "){
+            Name.placeholder = "Please Enter a Name"
+        }
+        else{
+        let updatedName : String =  Name.text!
+        userOne.Name = updatedName
+        let user = FIRAuth.auth()?.currentUser
+        let userID : String = user!.uid
+        self.ref.child("Users").child(userID).updateChildValues(["Name" : userOne.Name ])
+        }
+        
+        
+    }
+    
+    @IBAction func emailEditButtonPressed(sender: AnyObject) {
+        let user = FIRAuth.auth()?.currentUser
+        let updatedEmail : String =  Email.text!
 
+        
+        if(self.Name.text == "" || self.Name.text == " "){
+            Name.placeholder = "Please Enter a Valid Email"
+         }
+        else{
+        user?.updateEmail(updatedEmail) { error in
+            if let error = error {
+                let alertController = UIAlertController(title: "Oops!", message: error.localizedDescription, preferredStyle: .Alert)
+                
+                let defaultAction = UIAlertAction(title: "OK", style: .Cancel, handler: nil)
+                alertController.addAction(defaultAction)
+                
+                self.presentViewController(alertController, animated: true, completion: nil)
+            } else {
+                let userID : String = user!.uid
+                userOne.Email = updatedEmail
+                userOne.userPrint()
+                self.ref.child("Users").child(userID).updateChildValues(["Email" : userOne.Email ])       }
+          }
+        }
+    }
+    
+    @IBAction func deleteAccountPressed(sender: AnyObject) {
+        let user = FIRAuth.auth()?.currentUser
+        let userID : String = user!.uid
+
+        
+        user?.deleteWithCompletion { error in
+                if let error = error {
+                    let alertController = UIAlertController(title: "Oops!", message: error.localizedDescription, preferredStyle: .Alert)
+                    
+                    let defaultAction = UIAlertAction(title: "OK", style: .Cancel, handler: nil)
+                    alertController.addAction(defaultAction)
+                    
+                    self.presentViewController(alertController, animated: true, completion: nil)
+               
+            } else {
+               
+                print("User Deleted Sucessfully")
+
+                self.ref.child("Users").child(userID).removeValue()
+                self.performSegueWithIdentifier("logOut", sender: nil)
+
+            
+            }
+        }
+        
+    }
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    //Kills the keboard if a touch outside of the textfield
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        self.view.endEditing(true)
+    }
 }
