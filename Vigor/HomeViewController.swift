@@ -47,14 +47,16 @@ class HomeViewController: UIViewController {
     @IBAction func ViewProfileButtonPressed(sender: AnyObject) {
         
         self.performSegueWithIdentifier("ProfileView", sender: self)
-        
-        
-        
-        
-        
+    
         
     }
 
+    @IBAction func classInfoButtonPressed(sender: AnyObject) {
+//        classInfoVar.classProfileTitle = "Test123"
+//        classInfoVar.classProfileDescription = "TESTTTTTTTTTTTTTT"
+        
+        self.performSegueWithIdentifier("HomeToClassInfo", sender: self)
+    }
 
     /*
     // MARK: - Navigation

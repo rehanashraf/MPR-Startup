@@ -36,10 +36,11 @@
 #import "UIViewController+Stripe_NavigationItemProxy.h"
 #import "STPRememberMePaymentCell.h"
 #import "STPAnalyticsClient.h"
+#import "STPColorUtils.h"
 
 @interface STPAddCardViewController ()<STPPaymentCardTextFieldDelegate, STPAddressViewModelDelegate, STPAddressFieldTableViewCellDelegate, STPSwitchTableViewCellDelegate, UITableViewDelegate, UITableViewDataSource, STPSMSCodeViewControllerDelegate, STPRememberMePaymentCellDelegate>
 @property(nonatomic)STPPaymentConfiguration *configuration;
-@property(nonatomic) STPTheme *theme;
+@property(nonatomic)STPTheme *theme;
 @property(nonatomic)STPAPIClient *apiClient;
 @property(nonatomic, weak)UITableView *tableView;
 @property(nonatomic, weak)UIImageView *cardImageView;
@@ -183,6 +184,11 @@ static NSInteger STPPaymentCardRememberMeSection = 3;
     self.tableView.allowsSelection = NO;
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone; // handle this with fake separator views for flexibility
     self.tableView.backgroundColor = self.theme.primaryBackgroundColor;
+    if ([STPColorUtils colorIsBright:self.theme.primaryBackgroundColor]) {
+        self.tableView.indicatorStyle = UIScrollViewIndicatorStyleBlack;
+    } else {
+        self.tableView.indicatorStyle = UIScrollViewIndicatorStyleWhite;
+    }
     
     self.cardImageView.tintColor = self.theme.accentColor;
     self.activityIndicator.tintColor = self.theme.accentColor;
@@ -196,6 +202,13 @@ static NSInteger STPPaymentCardRememberMeSection = 3;
     self.rememberMeCell.theme = self.theme;
     self.rememberMePhoneCell.theme = self.theme;
     self.rememberMeTermsView.theme = self.theme;
+    [self setNeedsStatusBarAppearanceUpdate];
+}
+
+- (UIStatusBarStyle)preferredStatusBarStyle {
+    return ([STPColorUtils colorIsBright:self.theme.primaryBackgroundColor] 
+            ? UIStatusBarStyleDefault
+            : UIStatusBarStyleLightContent);
 }
 
 - (void)viewDidLayoutSubviews {
@@ -247,28 +260,8 @@ static NSInteger STPPaymentCardRememberMeSection = 3;
 
 -(void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    __weak typeof(self) weakself = self;
-    [self stp_beginObservingKeyboardWithBlock:^(CGRect keyboardFrame, UIView *currentlyEditedField) {
-        UIEdgeInsets insets = weakself.tableView.contentInset;
-        CGRect windowFrame = [weakself.view convertRect:weakself.view.frame toView:nil];
-        CGRect bottomIntersection = CGRectIntersection(windowFrame, keyboardFrame);
-        insets.bottom = bottomIntersection.size.height;
-        weakself.tableView.contentInset = insets;
-        weakself.tableView.scrollIndicatorInsets = insets;
-        if (!currentlyEditedField || bottomIntersection.size.height <= 0) {
-            weakself.tableView.contentOffset = CGPointMake(0, -self.tableView.contentInset.top);
-            return;
-        }
-        // the keyboard is visible
-        CGRect responderFrame = [currentlyEditedField convertRect:currentlyEditedField.bounds toView:self.tableView];
-        CGPoint offset = self.tableView.contentOffset;
-        
-        CGFloat topOfScreenOffset = CGRectGetMinY(responderFrame);
-        CGFloat topOfKeyboardOffset = CGRectGetMinY(responderFrame) - CGRectGetMinY(keyboardFrame);
-        offset.y = ((topOfScreenOffset + topOfKeyboardOffset) / 2) - self.tableView.contentInset.top;
-        offset.y = MAX(offset.y, -self.tableView.contentInset.top);
-        self.tableView.contentOffset = offset;
-    }];
+    [self stp_beginObservingKeyboardAndInsettingScrollView:self.tableView
+                                             onChangeBlock:nil];
     [[self firstEmptyField] becomeFirstResponder];
 }
 
@@ -308,6 +301,9 @@ static NSInteger STPPaymentCardRememberMeSection = 3;
                 if (error) {
                     [strongself handleCheckoutTokenError:error];
                 }
+                else {
+                    self.loading = NO;
+                }
             }];
         }] onFailure:^(NSError *error) {
             [weakself handleCardTokenError:error];
@@ -327,6 +323,9 @@ static NSInteger STPPaymentCardRememberMeSection = 3;
                 [self.delegate addCardViewController:self didCreateToken:token completion:^(NSError * _Nullable error) {
                     if (error) {
                         [self handleCardTokenError:error];
+                    }
+                    else {
+                        self.loading = NO;
                     }
                 }];
             }

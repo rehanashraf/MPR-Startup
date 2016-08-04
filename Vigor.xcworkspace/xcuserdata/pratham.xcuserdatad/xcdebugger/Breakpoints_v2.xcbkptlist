@@ -241,5 +241,177 @@
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Vigor/MainScreenViewController.swift"
+            timestampString = "491966819.451179"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "20"
+            endingLineNumber = "20"
+            landmarkName = "MainScreenViewController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Vigor.MainScreenViewController.Hello.getter : weak Swift.ImplicitlyUnwrappedOptional&lt;__ObjC.FBSDKLoginButton&gt;"
+                  moduleName = "Vigor"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/pratham/Desktop/Swift/Vigor/Vigor/MainScreenViewController.swift"
+                  timestampString = "491289552.048463"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "20"
+                  endingLineNumber = "20"
+                  offsetFromSymbolStart = "40">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Vigor.MainScreenViewController.Hello.setter : weak Swift.ImplicitlyUnwrappedOptional&lt;__ObjC.FBSDKLoginButton&gt;"
+                  moduleName = "Vigor"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/pratham/Desktop/Swift/Vigor/Vigor/MainScreenViewController.swift"
+                  timestampString = "491289552.048689"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "20"
+                  endingLineNumber = "20"
+                  offsetFromSymbolStart = "52">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Vigor.MainScreenViewController.init (nibName : Swift.Optional&lt;Swift.String&gt;, bundle : Swift.Optional&lt;__ObjC.NSBundle&gt;) -&gt; Vigor.MainScreenViewController"
+                  moduleName = "Vigor"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/pratham/Desktop/Swift/Vigor/Vigor/MainScreenViewController.swift"
+                  timestampString = "491289552.048813"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "20"
+                  endingLineNumber = "20"
+                  offsetFromSymbolStart = "76">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Vigor.MainScreenViewController.init (coder : __ObjC.NSCoder) -&gt; Swift.Optional&lt;Vigor.MainScreenViewController&gt;"
+                  moduleName = "Vigor"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/pratham/Desktop/Swift/Vigor/Vigor/MainScreenViewController.swift"
+                  timestampString = "491289552.048942"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "20"
+                  endingLineNumber = "20"
+                  offsetFromSymbolStart = "36">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Vigor/MainScreenViewController.swift"
+            timestampString = "491966819.451179"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "18"
+            endingLineNumber = "18"
+            landmarkName = "MainScreenViewController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Vigor.MainScreenViewController.ref.getter : Swift.ImplicitlyUnwrappedOptional&lt;__ObjC.FIRDatabaseReference&gt;"
+                  moduleName = "Vigor"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/pratham/Desktop/Swift/Vigor/Vigor/MainScreenViewController.swift"
+                  timestampString = "491301046.510836"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "19"
+                  endingLineNumber = "19"
+                  offsetFromSymbolStart = "48">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Vigor.MainScreenViewController.ref.setter : Swift.ImplicitlyUnwrappedOptional&lt;__ObjC.FIRDatabaseReference&gt;"
+                  moduleName = "Vigor"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/pratham/Desktop/Swift/Vigor/Vigor/MainScreenViewController.swift"
+                  timestampString = "491301046.511021"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "19"
+                  endingLineNumber = "19"
+                  offsetFromSymbolStart = "76">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Vigor.MainScreenViewController.init (nibName : Swift.Optional&lt;Swift.String&gt;, bundle : Swift.Optional&lt;__ObjC.NSBundle&gt;) -&gt; Vigor.MainScreenViewController"
+                  moduleName = "Vigor"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/pratham/Desktop/Swift/Vigor/Vigor/MainScreenViewController.swift"
+                  timestampString = "491301046.511142"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "19"
+                  endingLineNumber = "19"
+                  offsetFromSymbolStart = "76">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Vigor.MainScreenViewController.init (coder : __ObjC.NSCoder) -&gt; Swift.Optional&lt;Vigor.MainScreenViewController&gt;"
+                  moduleName = "Vigor"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/pratham/Desktop/Swift/Vigor/Vigor/MainScreenViewController.swift"
+                  timestampString = "491301046.511262"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "19"
+                  endingLineNumber = "19"
+                  offsetFromSymbolStart = "36">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Vigor/ClassInfo.swift"
+            timestampString = "491961652.112725"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "11"
+            endingLineNumber = "11"
+            landmarkName = "ClassInfo"
+            landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

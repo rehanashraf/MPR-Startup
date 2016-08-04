@@ -4,6 +4,21 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>Bolts.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>FBSDKCoreKit.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>FBSDKLoginKit.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-Vigor.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -17,12 +32,27 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>662E9831B98D210E385FCC9D07F66B4E</key>
+		<key>06689F3C4AADC1B389406749951AB7A7</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>6C1B5D147C96CA22546716E3B8908C66</key>
+		<key>0EB19C1377A747F81110D44E2D5FCF78</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>6EDC37F3FA92533C6AC3562458AA91F1</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>9D0F2E5EA1B46A5D72FFD42B0B39DBBC</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>B61C2C1F00D5430A4988A1C62C542CC9</key>
 		<dict>
 			<key>primary</key>
 			<true/>
