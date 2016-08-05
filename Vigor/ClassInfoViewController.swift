@@ -19,6 +19,7 @@ class ClassInfoViewController: UIViewController,UINavigationControllerDelegate{
     @IBOutlet weak var ClassLabel: UILabel!
     @IBOutlet weak var ClassButton: UIButton!
     @IBOutlet weak var ClassDesc: UITextView!
+    @IBOutlet weak var ClassAddress: UILabel!
     
     var refHandle: UInt!
     var base64String: NSString!
@@ -29,6 +30,8 @@ class ClassInfoViewController: UIViewController,UINavigationControllerDelegate{
         
     ClassLabel.text = classInfoVar.classProfileTitle
     ClassDesc.text = classInfoVar.classProfileDescription
+    ClassAddress.text = classInfoVar.classProfileAddress
+    ClassButton.setTitle("$\(classInfoVar.classProfilePrice) - BOOK CLASS", forState: .Normal)
         
         
     

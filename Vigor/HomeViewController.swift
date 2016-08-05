@@ -71,6 +71,9 @@ class HomeViewController: UIViewController {
         classInfoVar.classProfileTitle = snapshot.value!["ClassTitle"] as! String
         classInfoVar.classProfileDescription = snapshot.value!["ClassDescription"] as! String
         classInfoVar.classProfileImageURL = snapshot.value!["ClassImage"] as! String
+        classInfoVar.classProfileAddress = snapshot.value!["ClassAddress"] as! String
+        classInfoVar.classProfilePrice = snapshot.value!["ClassPrice"] as! String
+            
         self.goToClassInfoPage()
         })
         
