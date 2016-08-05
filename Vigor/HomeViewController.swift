@@ -50,22 +50,34 @@ class HomeViewController: UIViewController {
     
         
     }
-
-    @IBAction func classInfoButtonPressed(sender: AnyObject) {
-//        classInfoVar.classProfileTitle = "Test123"
-//        classInfoVar.classProfileDescription = "TESTTTTTTTTTTTTTT"
+    
+    @IBAction func JoggingClassButtonPressed(sender: AnyObject) {
+        fetchClassInfoFromDatabase("35108005")
         
+    }
+    
+    @IBAction func YogaClassButtonPressed(sender: AnyObject) {
+        fetchClassInfoFromDatabase("49977071")
+    }
+    
+    @IBAction func GolfClassButtonPressed(sender: AnyObject) {
+        fetchClassInfoFromDatabase("91852603")
+    }
+    
+    func fetchClassInfoFromDatabase(eventKey : String){
+        
+        ref.child("Classes").child(eventKey).observeSingleEventOfType(.Value,
+        withBlock:{(snapshot) in
+        classInfoVar.classProfileTitle = snapshot.value!["ClassTitle"] as! String
+        classInfoVar.classProfileDescription = snapshot.value!["ClassDescription"] as! String
+        classInfoVar.classProfileImageURL = snapshot.value!["ClassImage"] as! String
+        self.goToClassInfoPage()
+        })
+        
+    }
+    
+    func goToClassInfoPage() {
         self.performSegueWithIdentifier("HomeToClassInfo", sender: self)
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+    
 }

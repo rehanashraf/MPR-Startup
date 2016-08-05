@@ -9,12 +9,12 @@
 import Foundation
 
 class ClassInfo{
-    
+    private var clssPrflID : String!
     private var clssPrfleImgURL : String!
     private var clssPrflTtl : String!
     private var clssPrflDscrptn : String!
     private var clssPrflPrc : String!
-    
+    private var clssPrflAddrss : String!
     
     var classProfileImageURL : String {
         get{
@@ -52,12 +52,33 @@ class ClassInfo{
         }
         
     }
+    var classProfileID : String {
+        get{
+            return clssPrflID
+        }
+        set{
+            clssPrflID = newValue
+        }
+        
+    }
+    var classProfileAddress : String {
+        get{
+            return clssPrflAddrss
+        }
+        set{
+            clssPrflAddrss = newValue
+        }
+        
+    }
+    
     
     init(){
         self.classProfileImageURL = "sample.png"
         self.classProfileTitle = "Class Title "
         self.classProfileDescription = "Brief Description Brief Description Brief Description Brief Description Brief Description Brief Description Brief Description Brief Description Brief DescriptionBrief Description Brief Description Brief DescriptionBrief DescriptionBrief DescriptionBrief"
         self.clssPrflPrc = "0"
+        self.classProfileID = "00000000"
+        self.classProfileAddress = "000 sample st , San Jose  Ca 95139"
     }
     
     
