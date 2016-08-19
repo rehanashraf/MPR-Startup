@@ -15,7 +15,11 @@ class ClassInfo{
     private var clssPrflDscrptn : String!
     private var clssPrflPrc : String!
     private var clssPrflAddrss : String!
+    private var locationLat : Double!
+    private var locationLong : Double!
     
+    
+
     var classProfileImageURL : String {
         get{
             return clssPrfleImgURL
@@ -70,15 +74,39 @@ class ClassInfo{
         }
         
     }
+    var locationLatitude : Double {
+        get{
+            return locationLat
+        }
+        set{
+            locationLat = newValue
+        }
+        
+    }
+    
+    var locationLongitude : Double {
+        get{
+            return locationLong
+        }
+        set{
+            locationLong = newValue
+        }
+        
+    }
+    
+
+
     
     
     init(){
         self.classProfileImageURL = "sample.png"
         self.classProfileTitle = "Class Title "
         self.classProfileDescription = "Brief Description Brief Description Brief Description Brief Description Brief Description Brief Description Brief Description Brief Description Brief DescriptionBrief Description Brief Description Brief DescriptionBrief DescriptionBrief DescriptionBrief"
-        self.clssPrflPrc = "0"
+        self.classProfilePrice = "0"
         self.classProfileID = "00000000"
         self.classProfileAddress = "000 sample st , San Jose  Ca 95139"
+        self.locationLatitude = 21.282778
+        self.locationLatitude = -157.829444
     }
     
     

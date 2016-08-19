@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		1C5AF5A3A3D5244D12B6E53F /* Pods_Vigor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2116254742F3F2DD957E631 /* Pods_Vigor.framework */; };
+		D71023A71D644D440083B967 /* Payment.swift in Sources */ = {isa = PBXBuildFile; fileRef = D71023A61D644D440083B967 /* Payment.swift */; };
+		D76122C11D5B8092007C3212 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D76122C01D5B8092007C3212 /* DataService.swift */; };
 		D783E3E01D52BCE900F3055C /* ClassInfoClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D783E3DF1D52BCE900F3055C /* ClassInfoClass.swift */; };
 		D783E3E21D52BFB500F3055C /* ClassInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D783E3E11D52BFB500F3055C /* ClassInfoViewController.swift */; };
 		D7A858031D3E01AC006A6723 /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A858021D3E01AC006A6723 /* UserProfile.swift */; };
@@ -30,6 +32,8 @@
 		5BB7D79BA101A3D1327E17ED /* Pods-Vigor.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Vigor.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Vigor/Pods-Vigor.debug.xcconfig"; sourceTree = "<group>"; };
 		AF8B0B40A131C3DE3C252C93 /* Pods-Vigor.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Vigor.release.xcconfig"; path = "Pods/Target Support Files/Pods-Vigor/Pods-Vigor.release.xcconfig"; sourceTree = "<group>"; };
 		C2116254742F3F2DD957E631 /* Pods_Vigor.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Vigor.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D71023A61D644D440083B967 /* Payment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Payment.swift; sourceTree = "<group>"; };
+		D76122C01D5B8092007C3212 /* DataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		D783E3DF1D52BCE900F3055C /* ClassInfoClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClassInfoClass.swift; sourceTree = "<group>"; };
 		D783E3E11D52BFB500F3055C /* ClassInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClassInfoViewController.swift; sourceTree = "<group>"; };
 		D790D38D1D485E3000326A0C /* VigorFacebookAccess.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VigorFacebookAccess.h; sourceTree = "<group>"; };
@@ -119,6 +123,8 @@
 				D790D38D1D485E3000326A0C /* VigorFacebookAccess.h */,
 				D783E3DF1D52BCE900F3055C /* ClassInfoClass.swift */,
 				D783E3E11D52BFB500F3055C /* ClassInfoViewController.swift */,
+				D76122C01D5B8092007C3212 /* DataService.swift */,
+				D71023A61D644D440083B967 /* Payment.swift */,
 			);
 			path = Vigor;
 			sourceTree = "<group>";
@@ -248,6 +254,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				D7F3E76E1D38AD37005000C3 /* SearchViewController.swift in Sources */,
+				D76122C11D5B8092007C3212 /* DataService.swift in Sources */,
+				D71023A71D644D440083B967 /* Payment.swift in Sources */,
 				D783E3E01D52BCE900F3055C /* ClassInfoClass.swift in Sources */,
 				D7F3E76C1D38ACF4005000C3 /* HomeViewController.swift in Sources */,
 				D7F441DB1D362B76008D4229 /* SignUpViewController.swift in Sources */,
@@ -379,6 +387,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.PrathamDoshi.Vigor;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -395,6 +404,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.PrathamDoshi.Vigor;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

@@ -244,4 +244,12 @@ class UserProfile: UIViewController, UIImagePickerControllerDelegate, UINavigati
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         self.view.endEditing(true)
     }
+    
+    
+    @IBAction func BecomeAtrainerButtonPressed(sender: AnyObject) {
+        self.performSegueWithIdentifier("UserProfileToPayment", sender: nil)
+    }
+    
+    
+    
 }

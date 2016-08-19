@@ -19,6 +19,8 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var helloLabel: UILabel!
     
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -73,7 +75,11 @@ class HomeViewController: UIViewController {
         classInfoVar.classProfileImageURL = snapshot.value!["ClassImage"] as! String
         classInfoVar.classProfileAddress = snapshot.value!["ClassAddress"] as! String
         classInfoVar.classProfilePrice = snapshot.value!["ClassPrice"] as! String
-            
+        classInfoVar.locationLatitude = snapshot.value!["Latitude"] as! Double
+        classInfoVar.locationLongitude = snapshot.value!["Longitude"] as! Double
+
+        
+       
         self.goToClassInfoPage()
         })
         
