@@ -22,7 +22,8 @@ class ClassInfoViewController: UIViewController,UINavigationControllerDelegate{
     @IBOutlet weak var ClassDesc: UITextView!
     @IBOutlet weak var ClassAddress: UILabel!
     @IBOutlet weak var scrollView: UIScrollView!
-   // @IBOutlet weak var ClassInstructorProfilePicture: UIImageView!
+   
+    @IBOutlet weak var ClassInstructorProfilePicture: UIImageView!
     
     
     var refHandle: UInt!
@@ -60,30 +61,14 @@ class ClassInfoViewController: UIViewController,UINavigationControllerDelegate{
     mapView.addAnnotation(dropPin)
     centerMapOnLocation(initialLocation)
         
-  
-//        ClassInstructorProfilePicture.layer.borderWidth = 3
-//        ClassInstructorProfilePicture.layer.masksToBounds = true
-//        ClassInstructorProfilePicture.layer.borderColor = UIColor.whiteColor().CGColor
-//        ClassInstructorProfilePicture.layer.cornerRadius = 36
-//     //   ClassInstructorProfilePicture.layer.cornerRadius = self.ClassInstructorProfilePicture.frame.size.width / 2
-//        ClassInstructorProfilePicture.clipsToBounds = true
-//
-    
-        
         let storage = FIRStorage.storage()
         let storageRef = storage.referenceForURL("gs://vigor-eaf6d.appspot.com")
         let imageRef = storageRef.child(imageURL)
-        
-        
-        
         
         if let cachedImage = self.imageCache.objectForKey(imageURL) as? UIImage{
             
             self.ClassProfilePic.image = cachedImage
             return
-            
-            
-            
         }
         
         
@@ -93,13 +78,18 @@ class ClassInfoViewController: UIViewController,UINavigationControllerDelegate{
             } else {
                 if let profileImage = UIImage(data: data!){
                     self.imageCache.setObject(profileImage, forKey: self.imageURL)
-                    //self.ClassProfilePic.image = profileImage
+                    self.ClassProfilePic.image = profileImage
                 }
             }
         }
     
     
     }
+    override func viewDidLayoutSubviews() {
+        makeImageRounder()
+        
+    }
+   
     
     func centerMapOnLocation(location: CLLocation) {
     let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate,
@@ -112,11 +102,13 @@ class ClassInfoViewController: UIViewController,UINavigationControllerDelegate{
        self.performSegueWithIdentifier("ClassInfoToHome", sender: self)
         
     }
-//    func makeImageRounder(){
-//        ClassInstructorProfilePicture.layer.borderWidth = 3
-//        ClassInstructorProfilePicture.layer.masksToBounds = true
-//        ClassInstructorProfilePicture.layer.borderColor = UIColor.whiteColor().CGColor
-//        ClassInstructorProfilePicture.layer.cornerRadius = self.ClassInstructorProfilePicture.frame.size.width / 2
-//        ClassInstructorProfilePicture.clipsToBounds = true
-//    }
+    func makeImageRounder(){
+      
+        
+        ClassInstructorProfilePicture.layer.borderWidth = 3
+        ClassInstructorProfilePicture.layer.masksToBounds = true
+        ClassInstructorProfilePicture.layer.borderColor = UIColor.whiteColor().CGColor
+        ClassInstructorProfilePicture.layer.cornerRadius = self.ClassInstructorProfilePicture.frame.size.width / 2
+        ClassInstructorProfilePicture.clipsToBounds = true
+    }
 }

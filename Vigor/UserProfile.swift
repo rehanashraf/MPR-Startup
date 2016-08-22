@@ -34,12 +34,6 @@ class UserProfile: UIViewController, UIImagePickerControllerDelegate, UINavigati
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        profilePicture.layer.borderWidth = 3
-        profilePicture.layer.masksToBounds = true
-        profilePicture.layer.borderColor = UIColor.whiteColor().CGColor
-        profilePicture.layer.cornerRadius = 111
-        profilePicture.clipsToBounds = true
-        
         ref = FIRDatabase.database().reference()
 //        refHandle = ref.observeEventType(FIRDataEventType.Value,
 //        withBlock: {(snapshot) in
@@ -85,6 +79,13 @@ class UserProfile: UIViewController, UIImagePickerControllerDelegate, UINavigati
                 }
             }
         })
+    }
+    override func viewDidLayoutSubviews() {
+        profilePicture.layer.borderWidth = 3
+        profilePicture.layer.masksToBounds = true
+        profilePicture.layer.borderColor = UIColor.whiteColor().CGColor
+        profilePicture.layer.cornerRadius = self.profilePicture.frame.size.width / 2
+        profilePicture.clipsToBounds = true
     }
     
     override func didReceiveMemoryWarning() {
@@ -169,18 +170,20 @@ class UserProfile: UIViewController, UIImagePickerControllerDelegate, UINavigati
         }
     }
     
+    
     @IBAction func nameEditButtonPressed(sender: AnyObject) {
-        if(self.Name.text == "" || self.Name.text == " "){
-            Name.placeholder = "Please Enter a Name"
-        }
-        else{
-        let updatedName : String =  Name.text!
-        userOne.Name = updatedName
-        let user = FIRAuth.auth()?.currentUser
-        let userID : String = user!.uid
-        self.ref.child("Users").child(userID).updateChildValues(["Name" : userOne.Name ])
-        }
-        
+        print("heyman")
+//        if(self.Name.text == "" || self.Name.text == " "){
+//            Name.placeholder = "Please Enter a Name"
+//        }
+//        else{
+//        let updatedName : String =  Name.text!
+//        userOne.Name = updatedName
+//        let user = FIRAuth.auth()?.currentUser
+//        let userID : String = user!.uid
+//        self.ref.child("Users").child(userID).updateChildValues(["Name" : userOne.Name ])
+//        }
+//        
         
     }
     
@@ -247,9 +250,17 @@ class UserProfile: UIViewController, UIImagePickerControllerDelegate, UINavigati
     
     
     @IBAction func BecomeAtrainerButtonPressed(sender: AnyObject) {
-        self.performSegueWithIdentifier("UserProfileToPayment", sender: nil)
+//        self.performSegueWithIdentifier("UserProfileToPayment", sender: nil)
     }
-    
+    func makeImageRounder(){
+        profilePicture.layer.borderWidth = 3
+        profilePicture.layer.masksToBounds = true
+        profilePicture.layer.borderColor = UIColor.whiteColor().CGColor
+        profilePicture.layer.cornerRadius = self.profilePicture.frame.size.width / 2
+        profilePicture.clipsToBounds = true
+        
+        
+    }
     
     
 }
